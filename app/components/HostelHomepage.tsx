@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import '../styles/HostelHomepage.css';
 
@@ -5,48 +7,47 @@ const HostelHomepage: React.FC = () => {
   return (
     <div className="hostel-homepage">
       <header>
-        {/* Navigation menu */}
+        <h1>Hostel Gili Trawangan</h1>
       </header>
 
       <main>
-        <section id="hero">
-          <h1>Hostel Gili Trawangan</h1>
-          <p>Your beachfront paradise on Gili Trawangan Island</p>
-          {/* Add a prominent "Book Now" button */}
+        <section className="hero">
+          <h2>Your beachfront paradise on Gili Trawangan Island</h2>
+          <button className="book-now">Book Now</button>
         </section>
 
-        <section id="about">
-          <h2>About Us</h2>
-          <p>Hostel Gili Trawangan offers a perfect blend of comfort, adventure, and relaxation. Located just 100 meters from North East Beach, our hostel provides an ideal base for exploring the beautiful Gili Trawangan island.</p>
+        <section className="about">
+          <h3>About Us</h3>
+          <p>
+            Hostel Gili Trawangan offers a perfect blend of comfort, adventure, and relaxation. Located just 100 meters from North East Beach, our hostel provides an ideal base for exploring the beautiful Gili Trawangan island.
+          </p>
         </section>
 
-        <section id="amenities">
-          <h2>Amenities</h2>
-          <ul>
-            <li>Outdoor swimming pool with infinity edge and pool bar</li>
-            <li>Private beach area</li>
-            <li>Free WiFi throughout the property</li>
-            <li>Air-conditioned rooms</li>
-            <li>On-site bar</li>
-            <li>Garden and terrace</li>
-            <li>24-hour security</li>
-          </ul>
-        </section>
-
-        <section id="rooms">
-          <h2>Accommodation Options</h2>
-          <div className="room-type">
-            <h3>Twin Room with Pool View</h3>
-            <p>Perfect for friends or couples, featuring two single beds and a refreshing pool view.</p>
-          </div>
-          <div className="room-type">
-            <h3>Dormitory Rooms</h3>
-            <p>Choose from female, male, or mixed dormitory rooms for a social and budget-friendly stay.</p>
+        <section className="amenities">
+          <h3>Amenities</h3>
+          <div className="amenities-grid">
+            {['Outdoor swimming pool', 'Private beach area', 'Free WiFi', 'Air-conditioned rooms', 'On-site bar', 'Garden and terrace', '24-hour security'].map((amenity, index) => (
+              <div key={index} className="amenity-item">{amenity}</div>
+            ))}
           </div>
         </section>
 
-        <section id="activities">
-          <h2>Island Activities</h2>
+        <section className="accommodation">
+          <h3>Accommodation Options</h3>
+          <div className="room-types">
+            <div className="room-type">
+              <h4>Twin Room with Pool View</h4>
+              <p>Perfect for friends or couples, featuring two single beds and a refreshing pool view.</p>
+            </div>
+            <div className="room-type">
+              <h4>Dormitory Rooms</h4>
+              <p>Choose from female, male, or mixed dormitory rooms for a social and budget-friendly stay.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="activities">
+          <h3>Island Activities</h3>
           <p>Explore the best of Gili Trawangan with our curated activities:</p>
           <ul>
             <li>Snorkeling and diving adventures</li>
@@ -57,8 +58,8 @@ const HostelHomepage: React.FC = () => {
           </ul>
         </section>
 
-        <section id="location">
-          <h2>Prime Location</h2>
+        <section className="location">
+          <h3>Prime Location</h3>
           <p>Situated in an excellent location rated 9.1/10 by our guests, Hostel Gili Trawangan is close to:</p>
           <ul>
             <li>North East Beach (100 meters)</li>
@@ -68,19 +69,14 @@ const HostelHomepage: React.FC = () => {
           </ul>
         </section>
 
-        <section id="reviews">
-          <h2>Guest Reviews</h2>
-          {/* Add a carousel or grid of guest reviews here */}
-        </section>
-
-        <section id="booking">
-          <h2>Book Your Stay</h2>
-          {/* Add a booking form or widget here */}
+        <section className="booking">
+          <h3>Book Your Stay</h3>
+          <button className="check-availability">Check Availability</button>
         </section>
       </main>
 
       <footer>
-        {/* Add contact information, social media links, and other relevant details */}
+        <p>© 2023 Hostel Gili Trawangan. All rights reserved.</p>
       </footer>
     </div>
   );
