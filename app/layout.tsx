@@ -1,4 +1,5 @@
-import { Providers } from "./providers";
+import Header from './components/Header';
+import './styles/HostelHomepage.css';
 
 export const metadata = {
   title: 'Hostel Gili Trawangan',
@@ -12,8 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <Providers>{children}</Providers>
+      <body className="hostel-homepage">
+        <Header />
+        <main>{children}</main>
+        <footer className="site-footer">
+          <p>&copy; 2023 Hostel Gili Trawangan. All rights reserved.</p>
+        </footer>
       </body>
     </html>
   )

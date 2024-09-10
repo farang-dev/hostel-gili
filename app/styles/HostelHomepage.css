@@ -1,20 +1,150 @@
-.hostel-homepage {
+body, html {
+  margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #333;
 }
 
-header {
-  background-color: #0000ff;
+.hostel-homepage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Reset header styles */
+.site-header {
+  background-color: #0000ff; /* Solid blue background */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.8rem;
   color: white;
-  padding: 1rem;
-  text-align: center;
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin-left: 1.5rem;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-list a:hover {
+  opacity: 0.8;
+}
+
+.cta-button {
+  background-color: white;
+  color: #0000ff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #f0f0f0;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 255, 0.9);
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list li {
+    margin: 0.5rem 0;
+  }
+
+  .cta-button {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
 }
 
 main {
-  max-width: 1200px;
-  margin: 0 auto;
+  flex-grow: 1;
+  margin-top: 60px;
   padding: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 section {
@@ -31,17 +161,34 @@ h1, h2, h3, h4 {
 .hero {
   background-color: #e6e6ff;
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .book-now, .check-availability {
   background-color: #0000ff;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
   cursor: pointer;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.book-now:hover {
+  background-color: #0000cc;
 }
 
 .amenities-grid {
@@ -76,15 +223,50 @@ ul {
   padding-left: 1.5rem;
 }
 
-footer {
+/* Update footer styles */
+.site-footer {
   background-color: #0000ff;
   color: white;
-  padding: 2rem;
+  padding: 0.5rem 0; /* Reduced padding for an even thinner footer */
   text-align: center;
+  font-size: 0.8rem; /* Smaller font size */
 }
 
-@media (max-width: 768px) {
-  .room-type {
-    flex: 1 1 100%;
-  }
+.site-footer p {
+  margin: 0; /* Remove default paragraph margin */
+}
+
+/* Remove the old footer styles */
+footer {
+  /* Remove this entire block */
+}
+
+/* ... (keep the rest of the existing styles) ... */
+
+header nav {
+  background-color: transparent;
+  padding: 0;
+  min-height: auto;
+  border: none;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul li {
+  margin: 0 1rem;
+  display: block;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
 }
