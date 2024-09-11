@@ -15,10 +15,19 @@ export default function RootLayout({
     <html lang="en">
       <body className="hostel-homepage">
         <Header />
-        <main>{children}</main>
-        <footer className="site-footer">
-          <p>&copy; 2023 Hostel Gili Trawangan. All rights reserved.</p>
-        </footer>
+        <div className="min-h-screen flex flex-col">
+          <header className="bg-gray-800 text-white py-4">
+            {/* Add header content here */}
+          </header>
+
+          <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+          </main>
+
+          <footer className="bg-gray-800 text-white py-4 mt-auto">
+            {/* Add footer content here */}
+          </footer>
+        </div>
       </body>
     </html>
   )

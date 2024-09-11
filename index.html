@@ -1,0 +1,47 @@
+<!-- Gallery Section -->
+<section id="gallery" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Gallery</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <img src="img/gallery1.jpg" alt="Gallery Image 1" class="img-fluid rounded">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="img/gallery2.jpg" alt="Gallery Image 2" class="img-fluid rounded">
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="img/gallery3.jpg" alt="Gallery Image 3" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Location Section -->
+<section id="location" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Our Location</h2>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <p>Jalan Ikan Hiu, 83352 Gili Trawangan, Indonesia</p>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div id="map" style="height: 300px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add these in the <head> section -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Add this before the closing </body> tag -->
+<script>
+  var map = L.map('map').setView([-8.3525, 116.0384], 14);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  L.marker([-8.3525, 116.0384]).addTo(map)
+    .bindPopup('Jalan Ikan Hiu, 83352 Gili Trawangan, Indonesia')
+    .openPopup();
+</script>
