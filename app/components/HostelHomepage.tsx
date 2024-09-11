@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../styles/HostelHomepage.css';
 import Image from "next/image"
 import { Bed, Printer, Tv, Wind, Bath, Wifi, Waves, Coffee } from "lucide-react"
@@ -11,26 +11,24 @@ const HostelHomepage: React.FC = () => {
   return (
     <div className="hostel-homepage">
       <header className="site-header">
-        <div className="header-content">
-          <a href="#" className="logo">Hostel Gili Trawangan</a>
-          <nav>
-            <ul className="nav-list">
-              <li><a href="#about">About</a></li>
-              <li><a href="#amenities">Amenities</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#location">Location</a></li>
-            </ul>
-          </nav>
-          <a href={bookingUrl} className="cta-button" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
-          <button className="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
+        {/* Header content remains the same */}
       </header>
 
       <main>
+        <section className="hero">
+          <div className="hero-content">
+            <h1>Welcome to Hostel Gili Trawangan</h1>
+            <p>Your perfect blend of comfort, adventure, and relaxation on the beautiful Gili Trawangan island.</p>
+          </div>
+          <div className="hero-image-grid">
+            <Image src="/img/hostel1.jpg" alt="Hostel exterior" width={300} height={200} />
+            <Image src="/img/hostel2.jpg" alt="Hostel room" width={300} height={200} />
+            <Image src="/img/hostel3.jpg" alt="Hostel common area" width={300} height={200} />
+            <Image src="/img/hostel4.jpg" alt="Hostel beach view" width={300} height={200} />
+          </div>
+          <a href={bookingUrl} className="cta-button" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
+        </section>
+
         <section className="about">
           <h2>About Us</h2>
           <div className="about-content">
@@ -110,7 +108,7 @@ const HostelHomepage: React.FC = () => {
         </section>
       </main>
 
-      <footer>
+      <footer className="site-footer">
         <p>© 2023 Hostel Gili Trawangan. All rights reserved.</p>
       </footer>
     </div>

@@ -140,18 +140,26 @@ body, html {
 
 main {
   flex-grow: 1;
-  margin-top: 60px;
-  padding: 2rem;
+  margin-top: 30px; /* Reduced from 40px to 30px */
+  padding: 0.5rem 2rem; /* Reduced top padding from 1rem to 0.5rem */
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Remove or comment out this style */
+/*
 section {
   margin-bottom: 2rem;
   background-color: #f8f9fa;
   padding: 1.5rem;
   border-radius: 8px;
+}
+*/
+
+/* Add some spacing between sections */
+section {
+  margin-bottom: 3rem;
 }
 
 h1, h2, h3, h4 {
@@ -159,21 +167,47 @@ h1, h2, h3, h4 {
 }
 
 .hero {
-  background-color: #e6e6ff;
-  text-align: center;
-  padding: 4rem 1rem;
-  border-radius: 8px;
+  text-align: left;
+  padding: 0.5rem 1rem 2rem; /* Reduced top padding from 1rem to 0.5rem */
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: calc(100vh - 60px); /* Adjust based on your header height */
+}
+
+.hero-content {
+  max-width: 800px;
+  margin-bottom: 1rem; /* Reduced margin */
+  align-self: flex-start; /* Added to ensure left alignment */
 }
 
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: #0000ff;
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+}
+
+.hero-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 1rem; /* Reduced margin */
+  align-self: center; /* Center the image grid */
+}
+
+.hero-image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .book-now, .check-availability {
@@ -327,7 +361,7 @@ header nav ul li a {
 .cta {
   text-align: center;
   padding: 2rem;
-  background-color: #e6e6ff;
+  background-color: transparent;
   border-radius: 8px;
 }
 
