@@ -3,17 +3,12 @@
 import React from 'react';
 import '../styles/HostelHomepage.css';
 import Image from "next/image"
-import { Bed, Printer, Tv, Wind, Bath, Wifi, Waves, Coffee } from "lucide-react"
 
 const HostelHomepage: React.FC = () => {
   const bookingUrl = "https://www.booking.com/hotel/id/hostel-gili-trawangan.en-gb.html#tab-main";
 
   return (
     <div className="hostel-homepage">
-      <header className="site-header">
-        {/* Header content remains the same */}
-      </header>
-
       <main>
         <section className="hero">
           <div className="hero-content">
@@ -47,17 +42,16 @@ const HostelHomepage: React.FC = () => {
           <h2>Our Facilities</h2>
           <div className="amenities-grid">
             {[
-              { icon: <Bed />, name: 'Double Story Beds', description: 'Comfortable double story beds for a good night\'s sleep.' },
-              { icon: <Printer />, name: 'Storage', description: 'Secure storage facilities for your belongings.' },
-              { icon: <Tv />, name: 'Television', description: 'Entertainment area with large screen TV.' },
-              { icon: <Wind />, name: 'Air Conditioning', description: 'Climate controlled rooms for your comfort.' },
-              { icon: <Bath />, name: 'Bathroom', description: 'Clean and modern bathroom facilities.' },
-              { icon: <Wifi />, name: 'WiFi', description: 'Free high-speed WiFi throughout the hostel.' },
-              { icon: <Waves />, name: 'Swimming Pool', description: 'Refreshing swimming pool for guests.' },
-              { icon: <Coffee />, name: 'Coffee Bar', description: 'Enjoy fresh coffee and snacks at our in-house coffee bar.' }
+              { name: 'Double Story Beds', description: 'Comfortable double story beds for a good night\'s sleep.' },
+              { name: 'Storage', description: 'Secure storage facilities for your belongings.' },
+              { name: 'Television', description: 'Entertainment area with large screen TV.' },
+              { name: 'Air Conditioning', description: 'Climate controlled rooms for your comfort.' },
+              { name: 'Bathroom', description: 'Clean and modern bathroom facilities.' },
+              { name: 'WiFi', description: 'Free high-speed WiFi throughout the hostel.' },
+              { name: 'Swimming Pool', description: 'Refreshing swimming pool for guests.' },
+              { name: 'Coffee Bar', description: 'Enjoy fresh coffee and snacks at our in-house coffee bar.' }
             ].map((amenity, index) => (
               <div key={index} className="amenity-item">
-                {amenity.icon}
                 <h3>{amenity.name}</h3>
                 <p>{amenity.description}</p>
               </div>
@@ -93,11 +87,17 @@ const HostelHomepage: React.FC = () => {
         <section className="location">
           <h2>Our Location</h2>
           <div className="location-content">
-            <div className="location-text">
-              <p>Jalan Ikan Hiu, 83352 Gili Trawangan, Indonesia</p>
-            </div>
+            <p className="location-text">Jalan Ikan Hiu, 83352 Gili Trawangan, Indonesia</p>
             <div className="location-map">
-              <div id="map" style={{ height: '300px', width: '100%' }}></div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.5421636891644!2d116.03622147489658!3d-8.352499192399016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcde6a3c1e6efb3%3A0x7f9f8f9f9f9f9f9f!2sGili%20Trawangan!5e0!3m2!1sen!2sus!4v1682430291619!5m2!1sen!2sus"
+                width="100%"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </section>
