@@ -1,0 +1,34 @@
+.review-section {
+    width: 100%;
+    overflow: hidden; /* Ensure content doesn't overflow */
+    white-space: nowrap; /* Prevent line breaks */
+    box-sizing: border-box;
+    /* ... other styles ... */
+}
+
+.reviews {
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+    white-space: nowrap; /* Prevent line breaks within the reviews container */
+}
+
+.review {
+    display: inline-block;
+    width: 33.33%; /* Assuming you want 3 reviews visible at a time */
+    box-sizing: border-box;
+    /* ... other styles ... */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.33%);
+    }
+}
+
+/* Apply the animation to the review section */
+.review-section {
+    animation: rotation 2s infinite linear;
+}

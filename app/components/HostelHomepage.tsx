@@ -3,6 +3,7 @@
 import React from 'react';
 import '../styles/HostelHomepage.css';
 import Image from "next/image"
+import FasterRotatingReviews from './FasterRotatingReviews'; // Import the FasterRotatingReviews component
 
 const HostelHomepage: React.FC = () => {
   const bookingUrl = "https://www.booking.com/hotel/id/hostel-gili-trawangan.en-gb.html#tab-main";
@@ -61,18 +62,7 @@ const HostelHomepage: React.FC = () => {
 
         <section className="testimonials">
           <h2>What our visitors are saying!</h2>
-          <div className="testimonials-grid">
-            {[
-              { name: 'Angela Charlton', text: '"Vivamus id gravida mi, nec ullamcorper purus. Suspendisse et nibh sagittis, faucibus erat at, ultrices ipsum. Praesent ac lobortis mauris, non sagittis quam."' },
-              { name: 'Kason Espinosa', text: '"Ac feugiat ante. Donec ultricies lobortis eros, nec eleifend est semper ultricies. Vivamus consequat augue viverra eget dolor vel finibus. Cras in bibendum odio urna at amet."' },
-              { name: 'Jeff Guerra', text: '"Aliquet erat. Nulla tempor mattis erat placerat. Sed id felis lacus. Nunc tristique tortor vitae est placerat ut venenatis tellus."' }
-            ].map((testimonial, index) => (
-              <div key={index} className="testimonial-item">
-                <p>{testimonial.text}</p>
-                <p className="testimonial-author">{testimonial.name}</p>
-              </div>
-            ))}
-          </div>
+          <FasterRotatingReviews /> {/* Add the FasterRotatingReviews component here */}
         </section>
 
         <section className="gallery">
