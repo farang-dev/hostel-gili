@@ -1,11 +1,29 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/HostelHomepage.css';
 import Image from "next/image"
 import FasterRotatingReviews from './FasterRotatingReviews'; // Import the FasterRotatingReviews component
 
+const images = [
+  { url: '/media/hostel1.jpg', alt: 'Hostel Image 1' },
+  { url: '/media/hostel2.jpg', alt: 'Hostel Image 2' },
+  { url: '/media/hostel3.jpg', alt: 'Hostel Image 3' },
+  { url: '/media/hostel4.jpg', alt: 'Hostel Image 4' },
+  // Add more images as needed
+];
+
 const HostelHomepage: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleImageClick = (imageUrl: string) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null);
+  };
+
   const bookingUrl = "https://www.booking.com/hotel/id/hostel-gili-trawangan.en-gb.html#tab-main";
 
   return (
@@ -17,10 +35,15 @@ const HostelHomepage: React.FC = () => {
             <p>Your perfect blend of comfort, adventure, and relaxation on the beautiful Gili Trawangan island.</p>
           </div>
           <div className="hero-image-grid">
-            <Image src="/img/hostel1.jpg" alt="Hostel exterior" width={300} height={200} />
-            <Image src="/img/hostel2.jpg" alt="Hostel room" width={300} height={200} />
-            <Image src="/img/hostel3.jpg" alt="Hostel common area" width={300} height={200} />
-            <Image src="/img/hostel4.jpg" alt="Hostel beach view" width={300} height={200} />
+            {images.slice(0, 4).map((image, index) => (
+              <img
+                key={index}
+                src={image.url}
+                alt={image.alt}
+                onClick={() => handleImageClick(image.url)}
+                // Removed inline styles
+              />
+            ))}
           </div>
           <a href={bookingUrl} className="cta-button" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
         </section>
@@ -101,6 +124,13 @@ const HostelHomepage: React.FC = () => {
       <footer className="site-footer">
         <p>© 2023 Hostel Gili Trawangan. All rights reserved.</p>
       </footer>
+
+      {selectedImage && (
+        <div className="modal" onClick={handleClose}>
+          <span className="close">&times;</span>
+          <img className="modal-content" src={selectedImage} alt="Full Size" />
+        </div>
+      )}
     </div>
   );
 };

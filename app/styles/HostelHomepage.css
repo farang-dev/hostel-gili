@@ -144,8 +144,8 @@ body, html {
 
 main {
   flex-grow: 1;
-  margin-top: 30px; /* Reduced from 40px to 30px */
-  padding: 0.5rem 2rem; /* Reduced top padding from 1rem to 0.5rem */
+  margin-top: 60px; /* Adjusted to match fixed header height */
+  padding: 0.5rem 2rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -153,18 +153,15 @@ main {
   box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
-/* Remove or comment out this style */
-/*
-section {
-  margin-bottom: 2rem;
-  background-color: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
+/* Add global box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-*/
 
-/* Add some spacing between sections */
 section {
+  width: 100%;
   margin-bottom: 3rem;
 }
 
@@ -173,19 +170,15 @@ h1, h2, h3, h4 {
 }
 
 .hero {
-  text-align: left;
-  padding: 0.5rem 1rem 2rem; /* Reduced top padding from 1rem to 0.5rem */
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: calc(100vh - 60px); /* Adjust based on your header height */
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Ensure text is left-aligned */
 }
 
 .hero-content {
   max-width: 800px;
-  margin-bottom: 1rem; /* Reduced margin */
-  align-self: flex-start; /* Added to ensure left alignment */
+  margin-bottom: 1rem;
+  align-self: flex-start;
+  margin-top: 0.5rem; /* Reduce space above the heading */
 }
 
 .hero h1 {
@@ -202,80 +195,59 @@ h1, h2, h3, h4 {
 .hero-image-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  max-width: 1000px;
-  width: 100%;
-  margin-bottom: 1rem; /* Reduced margin */
-  align-self: center; /* Center the image grid */
+  gap: 10px; /* Adjust the gap as needed */
+  width: 100%; /* Ensure it takes full width of the parent */
 }
 
 .hero-image-grid img {
-  width: 100%;
-  height: auto;
+  display: block; /* Ensure images are block-level to fill grid cells */
+  width: 100%; /* Make images take full width of the grid column */
+  height: 200px; /* Maintain consistent height */
   object-fit: cover;
-  border-radius: 8px;
-}
-
-.book-now, .check-availability {
-  background-color: #0000ff;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  border: 1px solid #ddd; /* Optional: for visual debugging */
 }
 
-.book-now:hover {
-  background-color: #0000cc;
+/* Ensure consistent widths for all sections */
+.about,
+.amenities,
+.testimonials,
+.gallery,
+.location,
+.cta {
+  width: 100%;
 }
 
-.amenities-grid {
+/* Remove any conflicting styles */
+section {
+  margin-bottom: 3rem;
+}
+
+/* Ensure main container aligns correctly */
+main {
+  flex-grow: 1;
+  margin-top: 60px; /* Adjusted to match fixed header height */
+  padding: 0.5rem 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure no horizontal overflow */
+.hostel-homepage {
+  overflow-x: hidden;
+}
+
+/* Gallery Section */
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-}
-
-.amenity-item {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.amenity-item svg {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 1rem;
-  color: #0000ff;
-}
-
-.amenity-item h3 {
-  margin-bottom: 0.5rem;
-}
-
-.room-types {
-  display: flex;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
 
-.room-type {
-  flex: 1 1 45%;
-  min-width: 250px;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-ul {
-  padding-left: 1.5rem;
-}
-
-/* Update footer styles */
+/* Footer Styles */
 .site-footer {
   background-color: #0000ff;
   color: white;
@@ -288,134 +260,53 @@ ul {
   margin: 0; /* Remove default paragraph margin */
 }
 
-/* Remove the old footer styles */
-footer {
-  /* Remove this entire block */
-}
-
-/* ... (keep the rest of the existing styles) ... */
-
-header nav {
-  background-color: transparent;
-  padding: 0;
-  min-height: auto;
-  border: none;
-}
-
-header nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+/* Modal Styles */
+.modal {
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-header nav ul li {
-  margin: 0 1rem;
-  display: block;
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
 }
 
-header nav ul li a {
-  color: white;
-  text-decoration: none;
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
   font-weight: bold;
-  display: inline-block;
-  padding: 5px 10px;
+  cursor: pointer;
 }
 
-/* Add these new styles */
-.gallery {
-  margin-bottom: 2rem;
-}
+/* Other existing styles... */
 
-.gallery-grid {
+.amenities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  gap: 20px; /* Space between cards */
 }
 
-.location {
-  margin-bottom: 1rem;
-}
-
-.location h2 {
-  margin-bottom: 0.05rem; /* Further reduced from 0.1rem to 0.05rem */
-}
-
-.location-content {
+.amenity-item {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center content */
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
 }
-
-.location-text {
-  font-size: 1.1rem;
-  margin-top: 0; /* Added to remove any top margin */
-  margin-bottom: 0.3rem;
-}
-
-.location-map {
-  width: 100%;
-  height: 300px;
-}
-
-/* Remove the media query for location-content */
-@media (min-width: 768px) {
-  .location-content {
-    flex-direction: column; /* Keep it column even on larger screens */
-  }
-
-  .location-text,
-  .location-map {
-    flex: none; /* Remove flex properties */
-    width: 100%; /* Ensure full width */
-  }
-}
-
-.cta {
-  text-align: center;
-  padding: 2rem;
-  background-color: transparent;
-  border-radius: 8px;
-}
-
-.cta h2 {
-  margin-bottom: 1rem;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #0000ff;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #0000cc;
-}
-
-@media (min-width: 768px) {
-  .amenities-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Add styles for the testimonials section */
-.testimonials {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.testimonial-item {
-  flex: 1 1 calc(33.333% - 1em); /* 3 columns */
-  margin: 0.5em;
-  box-sizing: border-box;
-}
-
-/* Add any additional styles for the rotating effect if needed */
