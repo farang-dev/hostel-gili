@@ -197,6 +197,7 @@ h1, h2, h3, h4 {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px; /* Adjust the gap as needed */
   width: 100%; /* Ensure it takes full width of the parent */
+  margin-bottom: 20px; /* Add space below the image grid to prevent overlap */
 }
 
 .hero-image-grid img {
@@ -309,4 +310,45 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Style "BOOK NOW" CTA buttons in the body to have a blue background and white text */
+.hero .cta-button,
+.cta .cta-button {
+  background-color: #0000ff; /* Blue background */
+  color: white; /* White text */
+  /* Optional: Adjust hover state for better UX */
+}
+
+.hero .cta-button:hover,
+.cta .cta-button:hover {
+  background-color: #0000cc; /* Darker blue on hover */
+}
+
+/* Ensure the CTA buttons are aligned to the left */
+.hero,
+.cta {
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.hostel-homepage .cta-button {
+  margin-top: 20px; /* Add space above the "BOOK NOW" button */
+}
+
+.hostel-homepage .hero-image-grid {
+  margin-bottom: 20px; /* Add space below the image grid to prevent overlap */
+}
+
+.hostel-cta-button {
+  background-color: #0000ff; /* Blue background */
+  color: white; /* White text */
+  margin-top: 20px; /* Space above the button */
+}
+
+/* Fix the position of the global navigation "BOOK NOW" button */
+.site-header .cta-button {
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  margin-top: 0; /* Remove any unwanted top margin */
+  /* Add any additional positioning styles if necessary */
 }

@@ -45,7 +45,7 @@ const HostelHomepage: React.FC = () => {
               />
             ))}
           </div>
-          <a href={bookingUrl} className="cta-button" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
+          <a href={bookingUrl} className="cta-button hostel-cta-button" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
         </section>
 
         <section className="about">
@@ -117,7 +117,7 @@ const HostelHomepage: React.FC = () => {
 
         <section className="cta">
           <h2>Ready for your adventure?</h2>
-          <a href={bookingUrl} className="cta-button" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
+          <a href={bookingUrl} className="cta-button hostel-cta-button" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
         </section>
       </main>
 
