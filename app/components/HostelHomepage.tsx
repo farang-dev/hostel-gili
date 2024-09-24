@@ -6,10 +6,10 @@ import Image from "next/image"
 import FasterRotatingReviews from './FasterRotatingReviews'; // Import the FasterRotatingReviews component
 
 const images = [
-  { url: '/media/hostel1.jpg', alt: 'Hostel Image 1' },
-  { url: '/media/hostel2.jpg', alt: 'Hostel Image 2' },
-  { url: '/media/hostel3.jpg', alt: 'Hostel Image 3' },
-  { url: '/media/hostel4.jpg', alt: 'Hostel Image 4' },
+  { url: '/media/hostel1.jpg', alt: 'Hostel Image 1' }, // Removed height
+  { url: '/media/hostel2.jpg', alt: 'Hostel Image 2' }, // Removed height
+  { url: '/media/hostel3.jpg', alt: 'Hostel Image 3' }, // Removed height
+  { url: '/media/hostel4.jpg', alt: 'Hostel Image 4' }, // Removed height
   // Add more images as needed
 ];
 
@@ -35,13 +35,13 @@ const HostelHomepage: React.FC = () => {
             <p>Your perfect blend of comfort, adventure, and relaxation on the beautiful Gili Trawangan island.</p>
           </div>
           <div className="hero-image-grid">
-            {images.slice(0, 4).map((image, index) => (
+            {images.map((image) => (
               <img
-                key={index}
+                key={image.url}
                 src={image.url}
                 alt={image.alt}
+                className="hero-image" // Added class for styling
                 onClick={() => handleImageClick(image.url)}
-                // Removed inline styles
               />
             ))}
           </div>
@@ -91,9 +91,9 @@ const HostelHomepage: React.FC = () => {
         <section className="gallery">
           <h2>Gallery</h2>
           <div className="gallery-grid">
-            <Image src="/img/gallery1.jpg" alt="Gallery Image 1" width={300} height={200} />
-            <Image src="/img/gallery2.jpg" alt="Gallery Image 2" width={300} height={200} />
-            <Image src="/img/gallery3.jpg" alt="Gallery Image 3" width={300} height={200} />
+            <Image src="/img/gallery1.jpg" alt="Gallery Image 1" width={300} height={400} /> {/* Doubled height */}
+            <Image src="/img/gallery2.jpg" alt="Gallery Image 2" width={300} height={400} /> {/* Doubled height */}
+            <Image src="/img/gallery3.jpg" alt="Gallery Image 3" width={300} height={400} /> {/* Doubled height */}
           </div>
         </section>
 

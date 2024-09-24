@@ -203,7 +203,7 @@ h1, h2, h3, h4 {
 .hero-image-grid img {
   display: block; /* Ensure images are block-level to fill grid cells */
   width: 100%; /* Make images take full width of the grid column */
-  height: 200px; /* Maintain consistent height */
+  height: 400px !important; /* Doubled height */
   object-fit: cover;
   cursor: pointer;
   border: 1px solid #ddd; /* Optional: for visual debugging */
@@ -351,4 +351,8 @@ main {
   padding: 0.5rem 1rem; /* Adjust padding as needed */
   margin-top: 0; /* Remove any unwanted top margin */
   /* Add any additional positioning styles if necessary */
+}
+
+.hero-image {
+  height: 600px; /* Doubled height */
 }
